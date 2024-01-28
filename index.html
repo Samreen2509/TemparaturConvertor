@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temparature Converter</title>
+    <style>
+       *{
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+       }
+       .mainBody{
+        height: 40vh;
+        width: 100vw;
+        margin-top: 100px;
+        background-color: aqua;
+       }
+       .innerBody{
+        padding-top: 50px;
+        height: 30vh;
+       }
+       .innerBox{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+       }
+       input{
+        width: 30vw;
+        height: 3vw;
+        font-size: 25px;
+        padding-left: 5px;
+       }
+       .innerBody h1{
+        display: flex;
+        justify-content: center;
+       }
+      .fah{
+        margin-left: 30px;
+      }
+    </style>
+</head>
+<body>
+   <div class="mainBody">
+    <div class="innerBody">
+        <h1>Temparature Converter</h1><br><br>
+         <div class="innerBox">
+            <div class="cel">
+                <h3>Celsius</h3><br>
+                <input type="number" value="0" id="cel" class="inp">
+             </div>
+             <div class="fah">
+                <h3>Fahrenhide</h3><br>
+                <input type="number" value="32" id="fah" class="inp">
+             </div>
+         </div>
+   </div>
+    </div>
+    <script>
+        var celcius=document.getElementById("cel");
+        var Fahrenhide=document.getElementById("fah");
+
+        celcius.addEventListener('input',function()
+        {
+            let c=this.value;
+            let f = (c*9/5)+32;
+            if(!Number.isInteger(f))
+            {
+                f=f.toFixed(4);
+            }
+            Fahrenhide.value=f;
+        });
+        Fahrenhide.addEventListener('input',function()
+        {
+            let f=this.value;
+            let c = (f-32)*5/9;
+            if(!Number.isInteger(c))
+            {
+                c=c.toFixed(4);
+            }
+            celcius.value=c;
+        })
+    </script>
+</body>
+</html>
